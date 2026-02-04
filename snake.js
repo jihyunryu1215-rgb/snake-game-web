@@ -3,9 +3,10 @@ const ctx = canvas.getContext('2d');
 const scoreElem = document.getElementById('score');
 const rankingList = document.getElementById('ranking-list');
 const restartBtn = document.getElementById('restart-btn');
+const difficultyElem = document.getElementById('difficulty');
 
 const grid = 20;
-let snake, apple, count, gameOver, score, speed, frameInterval, speedName;
+let snake, apple, count, gameOver, score, speed, frameInterval, speedName, speedLevel;
 let ranking = JSON.parse(localStorage.getItem('snakeRanking') || '[]');
 
 const speedLevels = {
@@ -18,6 +19,9 @@ const speedLevels = {
 function setSpeed(level) {
     speed = speedLevels[level].interval;
     speedName = speedLevels[level].name;
+    speedLevel = level;
+    count = 0; // 난이도 변경 즉시 속도 반영
+    if (difficultyElem) difficultyElem.textContent = speedName;
 }
 
 function updateRanking(newScore) {
@@ -55,6 +59,7 @@ function resetGame() {
     score = 0;
     scoreElem.textContent = score;
     restartBtn.style.display = 'none';
+    if (difficultyElem) difficultyElem.textContent = speedName;
 }
 
 function restartGame() {
