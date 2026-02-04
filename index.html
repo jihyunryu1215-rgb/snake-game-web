@@ -15,11 +15,13 @@
         .hard { background: #ff9800; }
         .hell { background: #f44336; }
         .score, .ranking { margin: 10px 0; }
+        .difficulty { color: #fff; font-size: 18px; margin: 8px 0; }
     </style>
 </head>
 <body>
     <div id="container">
         <h1>Snake Game</h1>
+        <div class="difficulty">난이도: <span id="difficulty">노말</span></div>
         <canvas id="game" width="400" height="400"></canvas>
         <div class="score">점수: <span id="score">0</span></div>
         <div class="ranking">
