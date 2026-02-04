@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snake Game</title>
+    <style>
+        body { display: flex; justify-content: center; align-items: center; height: 100vh; background: #222; }
+        #container { text-align: center; }
+        canvas { background: #111; border: 2px solid #fff; display: block; margin: 0 auto; }
+        h1, h2, p, button, .score, .ranking { color: #fff; }
+        button { margin: 5px; padding: 8px 16px; font-size: 16px; border-radius: 5px; border: none; cursor: pointer; }
+        .easy { background: #4caf50; }
+        .normal { background: #2196f3; }
+        .hard { background: #ff9800; }
+        .hell { background: #f44336; }
+        .score, .ranking { margin: 10px 0; }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <h1>Snake Game</h1>
+        <canvas id="game" width="400" height="400"></canvas>
+        <div class="score">점수: <span id="score">0</span></div>
+        <div class="ranking">
+            <h2>랭킹 TOP 5</h2>
+            <ol id="ranking-list"></ol>
+        </div>
+        <div>
+            <button class="easy" onclick="setSpeed('easy')">이지</button>
+            <button class="normal" onclick="setSpeed('normal')">노말</button>
+            <button class="hard" onclick="setSpeed('hard')">하드</button>
+            <button class="hell" onclick="setSpeed('hell')">헬</button>
+        </div>
+        <div>
+            <button id="restart-btn" onclick="restartGame()" style="display:none; background:#fff; color:#222;">재시작</button>
+        </div>
+        <p style="color:white;">방향키로 조작하세요!</p>
+    </div>
+    <script src="snake.js"></script>
+</body>
+</html>
